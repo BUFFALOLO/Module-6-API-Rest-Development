@@ -1,0 +1,125 @@
+API REST DEVELOPMENT
+
+WEB FUNDAMENTALS
+
+Web Architecture Overview: Let's take a look at the architectural designs of the World Wide Web. Think of websites as planets & servers as spaceports, each following distinct blueprints for 
+specific advantages & purposes. Navigating through these structures, we'll explore communication protocols, the languages spoken between browsers (spacecraft) & servers (planets).
+
+In web architecture, 3 key designs exist:
+
+    Monolithic Architecture = a big, interconnected space station: Easy to start with, but as it grows, maintaining & scaling it becomes difficult. The entire application, its interface, server-side
+    logic, & database interactions are all part of a single, unified code base.
+
+    Service-Oriented Architecture (SOA) = a space station with specialized big modules: Large services that communicate over a network, offering a more manageable & scalable structure than A
+    monolithic approach.
+
+    Microservices Architecture = a space station with specialized small modules: Each module operates independently, communicates efficiently, & can be developed, deployed, & scaled separately for 
+    high flexibility & scalability.
+
+INTRODUCTION TO APIs: REST, GRAPHQL, GRPC, WEBSOCKET
+REST (Representational Estate Transfer) - The universal language: Uses HTTP methods & is the universal language keeping things simple & stateless.
+
+GraphQL - The personalized talk with a planet: Ask for specific data, & it gives you exactly that. It's all about efficient & precise data exchanges.
+
+gRPC (gRPC Remote procedure Calls) - Messages zipping through: Made by Google, it's great for speedy communication in things like microservices.
+
+WebSocket - the 2 way communication channel: Perfect for real time stuff like live streaming or online gaming, where quick & steady data flow is key.
+
+STEPS TO CREATE A VIRTUAL ENVIRONMENT
+
+1. Create a Virtual Environment 
+    Open the terminal (command center)
+    Navigate to your Python workspace directory (mission control room) & create a new directory for the project. For instance:
+
+    mkdir venv_project
+        
+    Navigate into the venv_project directory:
+    cd venv_project
+
+    Run the following command (where myenv is the name of your new environment)
+    python3 -m venv myenv
+
+2. Activate the Virtual Environment
+    On windows run:
+    myenv\Scripts\Activate
+
+PACKAGE MANAGEMENT & CHALLENGES
+Managing packages in Python is like prepping supplies for a space mission
+    Ensure you have the needed tools (packages) & keep them updated without overloading the spacecraft (project).
+    Challenges include handling dependencies, version conflicts & ensuring compatibility.
+
+INSTALLING PACKAGES 
+For a mission focused on HTTP data, we'll install packages:
+    requests for fetching data
+    beautifulsoup4 for parsing data
+TIP: Make sure you are in the venv_project directory and you have your virtual environment activated.
+
+1. Install the Python packages with our pip tool by running:
+pip install requests beautifulsoup4
+
+2. List all Python packages & confirm requests & beautifulsoup4 has been installed:
+pip list 
+
+3. Open VS code & create a Python script (fetch_website_title.py)
+    sample code to fetch & parse HTML data
+    import requests
+    from bs4 import BeautifulSoup 
+
+    fetching data from a website
+    response = requests.get('https://www.codingtemple.com/')
+
+    parsing the HTML content
+    soup = BeautifulSoup(response.content,'html.parser')
+
+    Print website Title 
+    print(soup.title.text)
+
+INTRODUCTION TO JSON
+JSON = the universal language of data exchange. It's a lightweight format that's easy for both humans & machines to understand & parse. JSON data is written as key-value pairs.
+{ 
+  "name": "Pikachu",
+  "type": "Electric",
+  "level": 25
+   }
+
+JSON support various data types including strings, numbers, objects (an unordered set of key-value pairs), arrays (ordered list of values), booleans & null.
+{
+    "pokemon": "Charmander",
+    "type": "Fire",
+    "level": 15,
+    "isEvolved": false,
+    "evolutionLevel": null
+}
+
+In JSON, an object is enclosed in curly braces {}, much like a toolbox with labeled compartments. An array is enclosed in square brackets [], akin to a series of cargo holds within a spacecraft.
+
+EXAMPLE: JSON object
+{
+    "trainer": {
+        "name": "Ash",
+        "age": 10,
+        "hometown": "Pallet Town"
+    }
+}
+
+EXAMPLE: JSON ARRAY 
+{
+    "trainer": "Ash".
+    "pokemons": ["Pikachu", "Bulbasaur", "Squirtle"]
+}
+
+EXAMPLE: COMBINING OBJECTS & ARRAYS 
+{
+    "trainer": "Ash",
+    "pokemons": [
+        {"
+        name": "Pikachu", "type": "Electric"},
+        {"name": "Bulbasaur", "type": "Grass"},
+        {"name": "Squirtle", "type": "Water"}
+    ]
+}
+
+CONVERTING JSON TO PYTHON OBJECTS
+When our spacecraft connects with the Pokemon API (PokeAPI), it fetches detailed data about different Pokemon using structured URLs like https://pokeapit.co/apu/v2/pokemon/pikachu.
+Upon receiving JSON data, we convert it into a Python-friendly format - a bit like translating alien transmissions for our spacecraft's systems to understand.
+
